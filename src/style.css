@@ -1,1 +1,60 @@
 @import "../node_modules/normalize.css/normalize.css";
+
+html, body{
+    background-color: aliceblue;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+header, main, footer{
+    padding: 0px 15px;
+}
+
+main{
+    background-color: aqua;
+    flex: 1 1 auto;
+}
+
+footer{
+    background-color: rgb(126, 160, 160);
+    height: 40px;
+}
+
+header{
+    background-color: rgb(112, 34, 34);
+}
+
+nav{ 
+    display: grid;
+    grid-template-columns: 1fr .4fr;
+}
+
+nav > div {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+button{
+    font-size: .9rem;
+    font-weight: 100;
+    padding: 3px 5px;
+    border-radius: .3rem;
+    border: 0;
+}
+
+#nav-title{
+    color: rgb(255, 248, 248);
+}
+
+#nav-buttons{
+    justify-content: space-around;
+}
