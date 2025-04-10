@@ -5,34 +5,60 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 	</head>
-	<body>
+	<body class="is-flex-column">
 		<header class="limit-width">
 			<nav>
 				<div>
-					<h3 id="nav-title">Bear Klaw</h3>
+					<h2 id="nav-title">Bear Klaw</h2>
 				</div>
 				<div id="nav-buttons">
-					<button type="button">Home</button>
-					<button type="button">Menu</button>
-					<button type="button">Contact</button>
+					<a href="" class="nav-item">Home</a>
+					<a href="" class="nav-item">Menu</a>
+					<a href="" class="nav-item">Contact</a>
 				</div>
 			</nav>
 		</header>
 		<main id="content" class="limit-width">
-			<div class="content-container">
-				<article>
-					<p>Article</p>
+			<div id="background-image"></div>
+			<div class="content-container is-flex-column">
+				<article id="content-head">
+					<h3>Dwarven Cullinary at its finest...</h3>
 				</article>
-				<div>
-					<div>Article</div>
-					<div>Article</div>
+				<div id="event-wrapper">
+					<h3>Our Events</h3>
+					<div id="event-container">
+						<div class="event">
+							<h4>The Green Drakes Hoard</h4>
+						</div>
+						<div class="event">
+							<h4>The Elfish Feast</h4>
+							<p class="event-text">
+								A fine feast inspired by the elfs of
+								Glinterfell, with lucious roast yam and
+								crackling pork, with a bevy of vegetables
+								garnished with grand herbs and spices.
+							</p>
+							<p class="event-date">Magentite 5th</p>
+						</div>
+						<div class="event">
+							<h4>Yuletide and All</h4>
+						</div>
+					</div>
+				</div>
+				<div id="content-split">
+					<div id="locations-wrapper">
+						<h3>Find our Mines</h3>
+					</div>
+					<div id="locations-wrapper">
+						<h3>Find our Mines</h3>
+					</div>
 				</div>
 			</div>
 		</main>
 		<footer class="limit-width">
 			<div>
-                <div>Me</div>
-            </div>
+				<div>Me</div>
+			</div>
 		</footer>
 	</body>
 </html>
