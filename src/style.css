@@ -83,7 +83,7 @@ hr {
 #about-container {
 	width: 300px;
 }
-#content-split {
+.content-split {
 	display: flex;
 	gap: 20px;
 	flex-wrap: nowrap;
@@ -126,6 +126,25 @@ hr {
 	text-align: left;
 }
 
+#menu-wrapper{
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-columns: minmax(500px, 1fr) minmax(350px, .7fr);
+	gap: 20px;
+
+	text-align: center;
+	align-items: center;
+	padding: 0px 20px 30px 20px;
+	gap: 20px;
+}
+#food-wrapper{
+
+}
+#extras-wrapper{
+
+
+}
+
 .menu-item-container {
 	display: grid;
 	grid-template-rows: repeat(auto-fit, .2fr);
@@ -137,15 +156,19 @@ hr {
 
 .menu-item {
 	display: grid;
-
-	grid-template-columns: minmax(100px, 0.2fr) 1fr;
+	grid-template-columns: minmax(100px, 0.4fr) 1fr 30px;
 	border: 4px solid rgba(0, 0, 0, 0.486);
-	background-color: rgba(0, 0, 0, 0.274);
+	background-color: rgba(0, 0, 0, 0.712);
 	gap: 15px;
 	min-width: 300px;
 	border-radius: 0.25rem;
-	padding: 8px;
+	padding: 4px;
 	align-items: center;
+	font-size: .9rem;
+
+}
+.menu-item  > h4{
+	margin: 0px;
 }
 .menu-item-text {
 	text-align: left;
@@ -184,10 +207,12 @@ footer {
 }
 
 header {
+
 	background-color: rgb(104, 49, 35);
 }
 
 nav {
+	padding: 0px 20px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
