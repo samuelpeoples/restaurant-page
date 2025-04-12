@@ -9,11 +9,14 @@ body {
 	padding: 0;
 	margin: 0;
 	color: rgb(247, 231, 231);
+	--content-width: 1000px;
+	--location-width: 400px;
+	box-sizing: border-box;
 }
-
 body {
 	display: flex;
 	flex-direction: column;
+	flex: 1 1 auto;
 }
 
 header,
@@ -22,25 +25,27 @@ footer {
 	display: flex;
 	padding: 0px 10px;
 	justify-content: center;
+	
 }
 
 .limit-width {
-	padding: 0px calc(50vw - 800px);
+	padding: 0px calc(50vw - var(--content-width));
 }
 .limit-width > * {
-	width: 800px;
+	width: var(--content-width);
 }
 
 main {
 	display: flex;
 	flex: 1 1 auto;
+	flex-grow: 1;
 }
 
 #background-image {
-	position: absolute;
-	top: 20px;
+	position: fixed;
+	top: 0px;
 	width: 100%;
-	height: 96%;
+	height: 100%;
 	z-index: -10;
 	background-image: url("../img/kevin-sidharta-chapter-3-dwarf-b.jpg");
 	background-size: cover;
@@ -49,9 +54,9 @@ main {
 }
 .content-container {
 	border: 4px solid black;
-	display: flexbox;
 	flex-direction: column;
 	gap: 20px;
+	margin-bottom: auto;
 }
 .content-container > * {
 	border: 2px solid rgb(145, 23, 23);
@@ -59,29 +64,36 @@ main {
 #content-head {
 	text-align: center;
 }
-#event-wrapper, #locations-wrapper {
+#event-wrapper {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
 }
-#content-split{
-    display: flex;
-	gap: 20px;
-	flex-wrap: nowrap;
-
-	justify-content: space-around;
-	text-align: center;
+#location-wrapper {
+	margin-right: auto;
 }
-#content-split > * {
-    border: 1px solid black;
-    
+#location-container {
+	display: grid;
+	gap: 10px;
 }
-#event-container {
+#about-container {
+	width: 300px;
+}
+#content-split {
 	display: flex;
 	gap: 20px;
 	flex-wrap: nowrap;
-
-	justify-content: space-around;
+	text-align: center;
+	padding: 0px 20px;
+}
+#content-split > * {
+	border: 1px solid black;
+}
+#event-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 20px;
+	justify-content: space-evenly;
 	text-align: center;
 }
 .event {
@@ -90,26 +102,52 @@ main {
 	display: flex;
 	flex-direction: column;
 	border-radius: 0.25rem;
-	width: 300px;
 	min-height: 125px;
+	min-width: 100px;
 	padding: 8px;
 }
-.event > h4 {
+.event > h4,
+.location > h4 {
 	margin: 2px 0px;
 }
-.event-text {
+.event-text,
+.location-text {
 	margin: 6px 0px;
 	font-style: italic;
 }
 .event-date {
-    margin: 4px 10px;
+	margin: 4px 0px 0px 4px;
 	font-size: 0.8rem;
 	text-align: left;
+}
+.address-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 4px 0px;
+	font-size: 0.9rem;
+}
+.address-link > a {
+	text-decoration: none;
+	color: inherit;
+}
+.location {
+	border: 2px solid black;
+	background-color: rgba(104, 49, 35, 0.315);
+	display: flex;
+	text-align: left;
+	flex-direction: column;
+	border-radius: 1.25rem;
+	width: var(--location-width);
+	min-height: 125px;
+	padding: 8px;
 }
 footer {
 	background-color: rgb(104, 49, 35);
 	height: 40px;
+	padding: 50px;
 	align-items: center;
+	flex-shrink: 0;
 }
 
 header {
@@ -143,17 +181,20 @@ button {
 	justify-content: space-around;
 }
 
-.nav-item {
+.nav-item,
+.address-link {
 	background-color: rgb(78, 20, 20);
 	padding: 4px 6px;
 	border-radius: 0.45rem;
 	text-decoration: inherit;
 	color: inherit;
 }
-.nav-item:hover {
+.nav-item:hover,
+.address-link:hover {
 	background-color: rgb(160, 70, 62);
 }
 
-.nav-item:active {
+.nav-item:active,
+.address-link:active {
 	background-color: rgb(85, 16, 10);
 }
