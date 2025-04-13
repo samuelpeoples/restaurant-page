@@ -293,6 +293,7 @@ input[type="submit"] {
 	border-radius: 0.45rem;
 	text-decoration: inherit;
 	color: inherit;
+	cursor: pointer;
 }
 .nav-item:hover,
 .address-link:hover,

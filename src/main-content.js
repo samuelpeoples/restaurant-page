@@ -1,5 +1,6 @@
 export default function () {
 	const contentWrapper = document.getElementById("content");
+	contentWrapper.innerHTML = "";
 	const background = document.createElement("div");
 	background.id = "background-image";
 	contentWrapper.appendChild(background);

@@ -1,5 +1,6 @@
 export default function () {
 	const contentWrapper = document.getElementById("content");
+	contentWrapper.innerHTML = "";
 	const background = document.createElement("div");
 	background.id = "background-image";
 	contentWrapper.appendChild(background);
@@ -13,143 +14,308 @@ export default function () {
 	contentContainer.appendChild(contentHead);
 
 	const headText = document.createElement("h2");
-	headText.textContent = "Dwarven Cullinary at its finest...";
+	headText.textContent = "Strong ale, stronger meals!";
 	contentHead.appendChild(headText);
 
 	contentContainer.appendChild(document.createElement("hr"));
 
-	const eventWrapper = document.createElement("div");
-	eventWrapper.id = "event-wrapper";
-	contentContainer.appendChild(eventWrapper);
+	const menuWrapper = document.createElement("div");
+	menuWrapper.id = "menu-wrapper";
+	contentContainer.appendChild(menuWrapper);
 
-	const eventHeadText = document.createElement("h3");
-	eventHeadText.textContent = "Dwarven Cullinary at its finest...";
-	eventWrapper.appendChild(eventHeadText);
+	const foodWrapper = document.createElement("div");
+	foodWrapper.id = "food-wrapper";
+	menuWrapper.appendChild(foodWrapper);
 
-	const eventContainer = document.createElement("div");
-	eventContainer.id = "event-container";
-	eventWrapper.appendChild(eventContainer);
+	const favouritesHeadtext = document.createElement("h3");
+	favouritesHeadtext.textContent = "The Favorites";
+	foodWrapper.appendChild(favouritesHeadtext);
 
-	eventContainer.appendChild(
-		makeEvent(
-			"The Green Drakes Hoard",
-			`A grand dwarven feast held in honor of cleverness, cunning, and the thrill of the
-		hunt—for, featuring an opulent spread of jewel-toned dishes, emerald-hued ales, and
-		glittering decorations. <br>Guests are invited to share tales of wit and compete in games of
-		riddles and strategy.`,
-			"Ingot 24th"
-		)
-	);
-	eventContainer.appendChild(
-		makeEvent(
-			"The Elfish Feast",
-			`A fine feast inspired by the elfs of Glinterfell, with lucious roast yam and crackling
-			pork, with a bevy of vegetables garnished with grand herbs and spices.`,
-			"Magentite 5th"
-		)
-	);
-	eventContainer.appendChild(
-		makeEvent(
-			"Yuletide and All",
-			`A classic winter festival filled with warmth, song, and rich comfort foods.
-			Gather in our halls lit by ever-burning braziers, share roast meats, spiced meads,
-			and enjoy tales of winters past.`,
-			"Alloyous 16th"
+	const favouritesMenuContainer = document.createElement("div");
+	favouritesMenuContainer.className = "menu-item-container";
+	foodWrapper.appendChild(favouritesMenuContainer);
+
+	favouritesMenuContainer.appendChild(
+		makeMenuItem(
+			`Ironhide Boar Ribs`,
+			`Slow-roasted ribs from mountain boar, glazed
+									with a smoky stonefruit BBQ sauce. Served
+									with charred root veggies and blackened
+									bread crusts.`,
+			48
 		)
 	);
 
-	const locationWrapper = document.createElement("div");
-	locationWrapper.id = "location-wrapper";
-	contentContainer.appendChild(locationWrapper);
-
-	const locationHeadText = document.createElement("h3");
-	locationHeadText.textContent = "Our Mines";
-	locationWrapper.appendChild(locationHeadText);
-
-	const locationContainer = document.createElement("div");
-	locationContainer.id = "location-container";
-	locationWrapper.appendChild(locationContainer);
-
-	locationContainer.appendChild(
-		makeLocation(
-			"Heffleheim",
-			`Deep in the depths of Heffleheim, with a central waterfall feature delivering a gorgeous
-			sauna like experieince, this luxury location is a grand location for all your feasting
-			needs.`,
-			"78 Emerald Grotto, Heffleheim"
+	favouritesMenuContainer.appendChild(
+		makeMenuItem(
+			`Klaw-Fried Cave Chicken`,
+			`Crispy breaded deep-cave fowl, seasoned with
+									spicy rock pepper and served atop a heap of
+									ale-battered taters.`,
+			43
 		)
 	);
-	locationContainer.appendChild(
-		makeLocation(
-			"Gragan'uur",
-			`At the peak of old Gragan an ancient dragon temple lays, showcasing a vista fit for the
-								gods. Sink your teeth into flank worthy of the oldest and greatest creatures known, and
-								feast with the great lords of old.`,
-			"Flight 18, 9 Lords Hall, Gragan"
+
+	favouritesMenuContainer.appendChild(
+		makeMenuItem(
+			`Molten Cheese & Mushroom Pie`,
+			`A thick-crust pie stuffed with fire-aged
+									cheeses and deep-earth mushrooms, baked in a
+									stone oven until bubbling hot.`,
+			38
 		)
 	);
-	locationContainer.appendChild(
-		makeLocation(
-			"Alasiir",
-			`In the obsidian mines of Lord Spaldar lays the original Bear Klaw, the first and
-								grandest with shimering gold halls, obsidian glass furnishings and flowing magma
-								streams. To those who enjoy a classic dwarven meal and tale there is no better hall than
-								this.`,
-			"Bear Klaw, Gold District, Alasiir"
+
+	const classicsHeadtext = document.createElement("h3");
+	classicsHeadtext.textContent = "The Classics";
+	foodWrapper.appendChild(classicsHeadtext);
+
+	const classicsMenuContainer = document.createElement("div");
+	classicsMenuContainer.className = "menu-item-container";
+	foodWrapper.appendChild(classicsMenuContainer);
+
+	classicsMenuContainer.appendChild(
+		makeMenuItem(
+			`Emberstone Stew`,
+			`A fiery mix of goat, smoked beetroot, and
+			sulfur-carrots simmered in spiced broth for
+			12 hours.`,
+			35
 		)
 	);
+
+	classicsMenuContainer.appendChild(
+		makeMenuItem(
+			`Miners’ Loaf`,
+			`Dense, nutty grain bread stuffed with
+									crumbled sausage, pickled onions, and
+									mountain herbs. A meal in your hand.`,
+			25
+		)
+	);
+
+	classicsMenuContainer.appendChild(
+		makeMenuItem(
+			`Coal-Baked Trout`,
+			`Whole-caught river trout wrapped in pine
+									leaves and baked in hot coals. Finished with
+									lemon-ale butter.`,
+			45
+		)
+	);
+
+	classicsMenuContainer.appendChild(
+		makeMenuItem(
+			`Ore-Cracked Meat Pie`,
+			`Thick pastry filled with minced beef, veal,
+									and charred onions, with a lava-crust top
+									that flakes like shale.`,
+			42
+		)
+	);
+
+	classicsMenuContainer.appendChild(
+		makeMenuItem(
+			`Forge-Fired Roasted Roots`,
+			`A medley of underground tubers roasted with
+									boar fat and a dusting of smokewort.`,
+			38
+		)
+	);
+
+	classicsMenuContainer.appendChild(
+		makeMenuItem(
+			`Tunnel Ratatouille`,
+			`A hearty vegetarian option—layered cave
+									eggplant, sun-dried tomato, and iron-spice
+									sauce.`,
+			40
+		)
+	);
+
+	const specialsHeadtext = document.createElement("h3");
+	specialsHeadtext.textContent = "The Chef Specials";
+	foodWrapper.appendChild(specialsHeadtext);
+
+	const specialsMenuContainer = document.createElement("div");
+	specialsMenuContainer.className = "menu-item-container";
+	foodWrapper.appendChild(specialsMenuContainer);
+
+	specialsMenuContainer.appendChild(
+		makeMenuItem(
+			`The King’s Anvil Platter`,
+			`A feast fit for royalty: seared dragon flank
+									steak (or beef, depending on supply),
+									firecracker potatoes, and a molten gold
+									gravy made with mead and bone marrow.`,
+			55
+		)
+	);
+
+	specialsMenuContainer.appendChild(
+		makeMenuItem(
+			`Ale-Braised Stone Lamb Shanks`,
+			`Lamb slow-braised in black ale, served on a
+									slab of warm granite with spiced turnip mash
+									and stonefruit glaze.`,
+			52
+		)
+	);
+
+	specialsMenuContainer.appendChild(
+		makeMenuItem(
+			`Glowspice Gnocchi`,
+			`Hand-rolled gnocchi with phosphorescent cave
+									cheese sauce, toasted pine nuts, and a pinch
+									of volcanic salt.`,
+			57
+		)
+	);
+
+	const extrasWrapper = document.createElement("div");
+	extrasWrapper.id = "extras-wrapper";
+	menuWrapper.appendChild(extrasWrapper);
+
+	const drinkWrapper = document.createElement("div");
+	drinkWrapper.id = "drink-wrapper";
+	extrasWrapper.appendChild(drinkWrapper);
+
+	const drinksHeadtext = document.createElement("h3");
+	drinksHeadtext.textContent = "Liquid Gold";
+	drinkWrapper.appendChild(drinksHeadtext);
+
+	const drinkContainer = document.createElement("div");
+	drinkContainer.className = "menu-item-container";
+	drinkWrapper.append(drinkContainer);
+
+	drinkContainer.appendChild(
+		makeMenuItem(
+			`Deep deep Ale`,
+			`Malty, dark, and thick as molasses. Brewed in stone vats. Pairs with: Emberstone Stew, Ironhide Boar Ribs.`,
+			12
+		)
+	);
+
+	drinkContainer.appendChild(
+		makeMenuItem(
+			`Frostbeard Lager`,
+			`Crisp and cold enough to cut through grease. Pairs with: Klaw-Fried Cave
+										Chicken, Coal-Baked Trout.`,
+			14
+		)
+	);
+
+	drinkContainer.appendChild(
+		makeMenuItem(
+			`Molten Mead`,
+			`Sweet honey mead with a ginger burn. Served warm. Pairs with: Molten Cheese &
+										Mushroom Pie, Forge-Fired Roasted Roots.`,
+			14
+		)
+	);
+
+	drinkContainer.appendChild(
+		makeMenuItem(
+			`Stonethrower Stout`,
+			`So strong it should come with a warning. Notes of coffee and burnt toffee. Pairs
+										with: Ore-Cracked Meat Pie, Miners’ Loaf.`,
+			15
+		)
+	);
+
+	drinkContainer.appendChild(
+		makeMenuItem(
+			`Lavawine`,
+			`A rare, spiced red fermented in obsidian bottles. Pairs with: Ale-Braised Stone
+										Lamb Shanks, Glowspice Gnocchi.`,
+			16
+		)
+	);
+
+	drinkContainer.appendChild(
+		makeMenuItem(
+			`Black Powder Whiskey`,
+			`Smoked with charroot and aged in thunder oak barrels. Pairs with: The King’s
+										Anvil Platter. <strong>2-glass limit, by decree</strong>.`,
+			18
+		)
+	);
+
+	const desertWrapper = document.createElement("div");
+	desertWrapper.id = "desert-wrapper";
+	extrasWrapper.appendChild(desertWrapper);
+
+	const desertHeadtext = document.createElement("h3");
+	desertHeadtext.textContent = "Desserts from the Deep";
+	desertWrapper.appendChild(desertHeadtext);
+
+	const desertContainer = document.createElement("div");
+	desertContainer.className = "menu-item-container";
+	desertWrapper.append(desertContainer);
+
+	desertContainer.appendChild(
+		makeMenuItem(
+			`Lavaflow Cake`,
+			`Dark chocolate cake with molten chili-cocoa center. Served warm with a scoop of
+										Stone Vanilla Ice (cold-churned in glacier caves).`,
+			22
+		)
+	);
+
+	desertContainer.appendChild(
+		makeMenuItem(
+			`Rock Candy Cluster`,
+			`Crystallized sugar and nuts mined fresh from the Sweetstone Caverns. Comes with
+										a small pick and helmet for full effect.`,
+			18
+		)
+	);
+
+	desertContainer.appendChild(
+		makeMenuItem(
+			`Gemfruit Tart`,
+			`Buttery crust filled with preserved crystal berries and a drizzle of frost
+										nectar. Tart, sweet, and sparkly.`,
+			17
+		)
+	);
+
+	desertContainer.appendChild(
+		makeMenuItem(
+			`Beardcream Brûlée`,
+			`A silky ale-infused custard with a scorched sugar top. Served in a cast iron
+										cup.`,
+			22
+		)
+	);
+
+	desertContainer.appendChild(
+		makeMenuItem(
+			`Forge Ember Cider Float`,
+			`Spiced cider poured over fire-cooked apple ice cream, topped with cinnamon smoke
+										and served with a spoon forged from pewter.`,
+			18
+		)
+	);
+
 }
 
-function makeEvent(name, str, date) {
-	const event = document.createElement("div");
-	event.className = "event";
+function makeMenuItem(name, str, price) {
+	const item = document.createElement("div");
+	item.className = "menu-item";
 
-	const eventName = document.createElement("h4");
-	eventName.innerHTML = name;
-	event.appendChild(eventName);
+	const itemName = document.createElement("h4");
+	itemName.innerHTML = name;
+	item.appendChild(itemName);
 
-	const eventText = document.createElement("p");
-	eventText.className = "event-text";
-	eventText.innerHTML = str;
-	event.appendChild(eventText);
+	const itemText = document.createElement("p");
+	itemText.className = "menu-item-text";
+	itemText.innerHTML = str;
+	item.appendChild(itemText);
 
-	const eventDate = document.createElement("p");
-	eventDate.className = "event-date";
-	eventDate.innerHTML = date;
-	event.appendChild(eventDate);
+	const itemPrice = document.createElement("p");
+	itemPrice.innerHTML = `${price}^`;
+	item.appendChild(itemPrice);
 
-	return event;
-}
-
-function makeLocation(name, str, address) {
-	const location = document.createElement("div");
-	location.className = "location";
-
-	const locationName = document.createElement("h4");
-	locationName.innerHTML = name;
-	location.appendChild(locationName);
-
-	const locationText = document.createElement("p");
-	locationText.className = "location-text";
-	locationText.innerHTML = str;
-	location.appendChild(locationText);
-
-	const addressContainer = document.createElement("div");
-	addressContainer.className = "address-container";
-	location.appendChild(addressContainer);
-
-	const locationAddress = document.createElement("span");
-	locationAddress.className = "address";
-	locationAddress.innerHTML = address;
-	addressContainer.appendChild(locationAddress);
-
-	const locationLinkContainer = document.createElement("span");
-	addressContainer.appendChild(locationLinkContainer);
-	const locationLink = document.createElement("a");
-	locationLink.href = "";
-	locationLink.textContent = "Find it here";
-	locationLink.className = "address-link"
-	locationLinkContainer.appendChild(locationLink);
-
-	return location;
+	return item;
 }
