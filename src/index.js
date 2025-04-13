@@ -12,7 +12,7 @@ function generate(){
 	menuButton.addEventListener('click', generateMenu);
 	const contactButton = document.getElementById("nav-contact-button");
 	contactButton.addEventListener('click', generateContact);
-	generateMenu();
 }
 
 generate();
+generateMain();
